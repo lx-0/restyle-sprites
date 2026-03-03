@@ -1,3 +1,11 @@
+/**
+ * Image I/O and geometry operations for sprite generation workflows.
+ *
+ * Depends on: `types` for spritesheet shape.
+ * Used by: `cli`, `StyleExplorer`, and `BatchGenerator`.
+ *
+ * @see DEC-004 Upscale-render-downscale for tiny sprites.
+ */
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';

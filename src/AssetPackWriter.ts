@@ -1,3 +1,11 @@
+/**
+ * Writes pack manifests and root index metadata.
+ *
+ * Depends on: shared `types`.
+ * Used by: `cli` and generation/exploration flows.
+ *
+ * @see DEC-002 Engine-agnostic metadata passthrough.
+ */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { AssetPackManifest, AssetPackManifestEntry } from './types.js';

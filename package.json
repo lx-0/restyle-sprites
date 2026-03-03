@@ -4,9 +4,29 @@
   "description": "AI-powered sprite restyling pipeline for consistent game asset packs",
   "type": "module",
   "license": "MIT",
+  "homepage": "https://github.com/lx-0/restyle-sprites#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/lx-0/restyle-sprites.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lx-0/restyle-sprites/issues"
+  },
+  "keywords": [
+    "sprites",
+    "pixel-art",
+    "ai",
+    "game-assets",
+    "spritesheet",
+    "restyle",
+    "image-generation",
+    "gemini",
+    "openai",
+    "asset-pipeline",
+    "gamedev"
+  ],
+  "engines": {
+    "node": ">=20"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

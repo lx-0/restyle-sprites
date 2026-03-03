@@ -1,3 +1,11 @@
+/**
+ * Config file loading and validation.
+ *
+ * Depends on: `types`.
+ * Used by: `cli` and programmatic consumers.
+ *
+ * @see DEC-003 Config-relative path resolution.
+ */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import yaml from 'js-yaml';
@@ -92,6 +100,18 @@ function validateConfig(data: unknown): RestyleSpritesConfig {
   };
 }
 
+/**
+ * Load and validate a restyle config from JSON or YAML.
+ *
+ * Paths inside the config are interpreted relative to the config file directory,
+ * not the current working directory.
+ *
+ * @param configPathArg - Path to `.json`, `.yaml`, or `.yml` config file.
+ * @returns Parsed config with absolute `configPath` and `configDir`.
+ * @throws Error if the file cannot be read, parsed, or validated.
+ *
+ * @see DEC-003 Config-relative path resolution.
+ */
 export async function loadConfig(configPathArg: string): Promise<LoadedConfig> {
   const configPath = path.resolve(configPathArg);
   const configDir = path.dirname(configPath);

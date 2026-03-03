@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * CLI entry point for `restyle-sprites`.
+ *
+ * Depends on: `config`, `StyleExplorer`, `BatchGenerator`, `ImageProcessor`,
+ * `PixelArtPostProcessor`, `AssetPackWriter`.
+ * Used by: end users via the `restyle-sprites` binary.
+ */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { config as loadEnv } from 'dotenv';

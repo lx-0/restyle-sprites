@@ -1,3 +1,9 @@
+/**
+ * Public package surface.
+ *
+ * Depends on: all public modules in `src/`.
+ * Used by: programmatic consumers importing `restyle-sprites`.
+ */
 export * from './types.js';
 export * from './config.js';
 export * from './AssetPackWriter.js';

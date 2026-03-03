@@ -1,3 +1,17 @@
+/**
+ * Batch orchestration for per-asset restyling.
+ *
+ * Depends on: `OpenAIImageClient`, `ImageProcessor`, `PixelArtPostProcessor`,
+ * and shared `types`.
+ * Used by: `cli`.
+ *
+ * Prompt strategy:
+ * - Build a strict primary prompt from global style + per-asset hint.
+ * - Inject category context, palette constraints, and pixel-art rules.
+ * - Retry with a safer fallback prompt on moderation blocks.
+ *
+ * @see DEC-004 Upscale-render-downscale for tiny sprites.
+ */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { OpenAIImageClient } from './OpenAIImageClient.js';
@@ -148,6 +162,12 @@ export class BatchGenerator {
     return message.includes('moderation_blocked') || message.includes('rejected by the safety system');
   }
 
+  /**
+   * Build a stricter, moderation-safe fallback prompt.
+   *
+   * Used when the primary prompt is blocked. Keeps geometry constraints while
+   * reducing stylistic risk.
+   */
   private buildFallbackPrompt(
     assetHint: string,
     targetSize: string,
@@ -201,6 +221,16 @@ export class BatchGenerator {
     throw lastError instanceof Error ? lastError : new Error('Asset rendering failed.');
   }
 
+  /**
+   * Build the primary render prompt.
+   *
+   * The prompt has two layers:
+   * - Global style direction from `explore` / `--style`.
+   * - Per-asset hint from config.
+   *
+   * It also injects category-specific context, palette constraints from the
+   * source sprite, and strict pixel-art output requirements.
+   */
   private buildPrompt(
     assetHint: string,
     stylePrompt: string,

@@ -1,3 +1,11 @@
+/**
+ * AI image client with provider orchestration.
+ *
+ * Depends on: `ImageProcessor` render-size type only.
+ * Used by: `StyleExplorer` and `BatchGenerator`.
+ *
+ * @see DEC-001 Gemini-first, OpenAI fallback.
+ */
 import fs from 'node:fs/promises';
 import OpenAI from 'openai';
 import sharp from 'sharp';

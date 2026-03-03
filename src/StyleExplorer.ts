@@ -1,3 +1,9 @@
+/**
+ * Interactive style-reference exploration loop.
+ *
+ * Depends on: `OpenAIImageClient` and `ImageProcessor`.
+ * Used by: `cli` explore commands.
+ */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import inquirer from 'inquirer';

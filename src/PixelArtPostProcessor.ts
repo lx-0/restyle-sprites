@@ -1,3 +1,18 @@
+/**
+ * Pixel-art specific post-processing pipeline.
+ *
+ * Depends on: `types` for category hints.
+ * Used by: `BatchGenerator`.
+ *
+ * Pipeline order for `process()`:
+ * 1) alpha binarization
+ * 2) alpha-tight crop (except layout-sensitive categories)
+ * 3) palette quantization
+ * 4) geometry-aware nearest-neighbor resize
+ * 5) final alpha cleanup and optional source masking
+ *
+ * @see DEC-004 Upscale-render-downscale for tiny sprites.
+ */
 import sharp from 'sharp';
 import * as iq from 'image-q';
 import { AssetCategory } from './types.js';
@@ -26,6 +41,12 @@ export class PixelArtPostProcessor {
   private static readonly DEFAULT_MAX_COLORS = 24;
   private static readonly DEFAULT_ALPHA_THRESHOLD = 128;
 
+  /**
+   * Apply the full pixel-art cleanup pipeline to a generated image.
+   *
+   * The method intentionally keeps hard edges and small-shape readability for
+   * gameplay sprites after the final nearest-neighbor downscale.
+   */
   public async process(
     rawBuffer: Buffer,
     targetWidth: number,

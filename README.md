@@ -180,17 +180,28 @@ See [`RELEASING.md`](./RELEASING.md) for the full runbook.
 
 ---
 
+## Roadmap
+
+- [ ] Parallel batch generation with rate-limit handling
+- [ ] Cross-platform BMP conversion (remove macOS-only `sips` dependency)
+- [ ] Automated style quality scoring
+- [ ] Plugin system for custom post-processors
+- [ ] Animated output support (GIF / APNG)
+- [ ] Test coverage for core pipeline
+- [ ] Advanced spritesheet & texture atlas support
+- [ ] Tool file import/export (Aseprite, Tiled, TexturePacker, ...)
+- [ ] Web UI with graphical workflow builder
+
+See [`ROADMAP.md`](./ROADMAP.md) for full details, priorities, and acceptance criteria.
+
+---
+
 ## Contributing
 
-Contributions are welcome — from humans, AI agents, or both working together. If an AI wrote the code, great. If you pair-programmed with one, also great. Just make sure the result works and you can stand behind what you submit.
+Contributions are welcome — from humans, AI agents, or both working together.
 
-Before opening a PR:
-
-1. Run `pnpm typecheck` and `pnpm build` locally.
-2. Add a changeset (`pnpm changeset`) describing your change.
-3. Keep PRs focused — one feature or fix per PR.
-
-If you're unsure whether an idea fits, open an issue first to discuss.
+- **AI agents**: Start with [`AGENTS.md`](./AGENTS.md) — the primary entry point for all agent contributors.
+- **Everyone**: See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for dev setup, workflow, and guidelines.
 
 ---
 
