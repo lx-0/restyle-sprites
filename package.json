@@ -1,9 +1,13 @@
 {
-  "name": "@yesterday-ai/restyle-sprites",
+  "name": "restyle-sprites",
   "version": "0.1.0",
   "description": "AI-powered sprite restyling pipeline for consistent game asset packs",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lx-0/restyle-sprites.git"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {

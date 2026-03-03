@@ -14,53 +14,22 @@ jobs:
   release:
     name: Version, Changelog, Publish
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v4
         with:
           version: 10
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
           registry-url: https://registry.npmjs.org
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm build
-
-      - name: Configure npm auth
-        run: |
-          echo "registry=https://registry.npmjs.org/" > ~/.npmrc
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Verify npm auth and registry
-        run: |
-          npm config get registry
-          npm whoami --registry=https://registry.npmjs.org/
-          npm ping --registry=https://registry.npmjs.org/
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Verify package scope metadata
-        run: |
-          npm view @yesterday-ai/restyle-sprites name --registry=https://registry.npmjs.org/ || true
-          npm view @yesterday-ai/restyle-sprites versions --json --registry=https://registry.npmjs.org/ || true
-
-      - name: Final npm auth check before publish
-        run: npm whoami --registry=https://registry.npmjs.org/
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
 
       - name: Create release PR or publish
         uses: changesets/action@v1
@@ -71,5 +40,4 @@ jobs:
           title: "chore(release): version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
