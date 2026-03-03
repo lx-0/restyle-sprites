@@ -14,6 +14,8 @@ jobs:
   release:
     name: Version, Changelog, Publish
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,8 +58,9 @@ jobs:
         run: |
           npm view @yesterday-ai/restyle-sprites name --registry=https://registry.npmjs.org/ || true
           npm view @yesterday-ai/restyle-sprites versions --json --registry=https://registry.npmjs.org/ || true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Final npm auth check before publish
+        run: npm whoami --registry=https://registry.npmjs.org/
 
       - name: Create release PR or publish
         uses: changesets/action@v1
@@ -69,3 +72,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
