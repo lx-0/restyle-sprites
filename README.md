@@ -118,6 +118,8 @@ Release automation is configured with:
 - automatic release PRs with version bumps and changelog updates
 - npm publish to the public registry using `NPM_TOKEN`
 
+Detailed release runbook: `RELEASING.md`
+
 ## PR Blocking Policy
 
 Use GitHub branch protection (or rulesets) on `main` and require these status checks:
