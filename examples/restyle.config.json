@@ -1,0 +1,192 @@
+{
+  "outputDir": "../../public/assets/packs",
+  "defaultActivePack": "default",
+  "sampleSprites": [
+    "../../public/assets/sprites/wumpus.bmp",
+    "../../public/assets/sprites/futter.bmp",
+    "../../public/assets/sprites/trinken.bmp",
+    "../../public/assets/sprites/baum.bmp",
+    "../../public/assets/sprites/heu.bmp",
+    "../../public/assets/sprites/mouse.bmp"
+  ],
+  "assets": [
+    {
+      "id": "wumpus_male",
+      "sourceFile": "../../public/assets/sprites/wumpus.bmp",
+      "outputFile": "sprites/wumpus.png",
+      "kind": "spritesheet",
+      "category": "character",
+      "width": 28,
+      "height": 84,
+      "frameWidth": 28,
+      "frameHeight": 28,
+      "frameCount": 3,
+      "frameDirection": "vertical",
+      "promptHint": "Main creature with clear silhouette and 3-frame walk cycle.",
+      "metadata": { "phaserKey": "wumpus_male" }
+    },
+    {
+      "id": "wumpus_female",
+      "sourceFile": "../../public/assets/sprites/wumpine.bmp",
+      "outputFile": "sprites/wumpine.png",
+      "kind": "spritesheet",
+      "category": "character",
+      "width": 28,
+      "height": 84,
+      "frameWidth": 28,
+      "frameHeight": 28,
+      "frameCount": 3,
+      "frameDirection": "vertical",
+      "promptHint": "Female variant in same family, clear frame continuity.",
+      "metadata": { "phaserKey": "wumpus_female" }
+    },
+    {
+      "id": "wumpus_child",
+      "sourceFile": "../../public/assets/sprites/wumpling.bmp",
+      "outputFile": "sprites/wumpling.png",
+      "kind": "spritesheet",
+      "category": "character",
+      "width": 28,
+      "height": 84,
+      "frameWidth": 28,
+      "frameHeight": 28,
+      "frameCount": 3,
+      "frameDirection": "vertical",
+      "promptHint": "Child variant, cute but still readable at tiny size.",
+      "metadata": { "phaserKey": "wumpus_child" }
+    },
+    {
+      "id": "resource_food",
+      "sourceFile": "../../public/assets/sprites/futter.bmp",
+      "outputFile": "sprites/futter.png",
+      "kind": "image",
+      "category": "resource",
+      "width": 36,
+      "height": 76,
+      "promptHint": "Food resource icon with compact silhouette.",
+      "metadata": { "phaserKey": "resource-food" }
+    },
+    {
+      "id": "resource_water",
+      "sourceFile": "../../public/assets/sprites/trinken.bmp",
+      "outputFile": "sprites/trinken.png",
+      "kind": "image",
+      "category": "resource",
+      "width": 36,
+      "height": 76,
+      "promptHint": "Water resource icon, easy to recognize at tiny scale.",
+      "metadata": { "phaserKey": "resource-water" }
+    },
+    {
+      "id": "effect_thought",
+      "sourceFile": "../../public/assets/sprites/thinking.bmp",
+      "outputFile": "sprites/thinking.png",
+      "kind": "image",
+      "category": "effect",
+      "width": 40,
+      "height": 28,
+      "promptHint": "Thought bubble effect icon with transparent background.",
+      "metadata": { "phaserKey": "effect-thought" }
+    },
+    {
+      "id": "tree",
+      "sourceFile": "../../public/assets/sprites/baum.bmp",
+      "outputFile": "sprites/baum.png",
+      "kind": "image",
+      "category": "prop",
+      "width": 40,
+      "height": 56,
+      "promptHint": "Tree prop with strong top-down readability."
+    },
+    {
+      "id": "font",
+      "sourceFile": "../../public/assets/sprites/font.bmp",
+      "outputFile": "sprites/font.png",
+      "kind": "image",
+      "category": "font",
+      "width": 144,
+      "height": 12,
+      "promptHint": "Bitmap font strip, preserve glyph spacing and baseline."
+    },
+    {
+      "id": "hay_a",
+      "sourceFile": "../../public/assets/sprites/heu.bmp",
+      "outputFile": "sprites/heu.png",
+      "kind": "image",
+      "category": "prop",
+      "width": 40,
+      "height": 80,
+      "promptHint": "Hay stack prop with clear silhouette."
+    },
+    {
+      "id": "hay_b",
+      "sourceFile": "../../public/assets/sprites/heu2.bmp",
+      "outputFile": "sprites/heu2.png",
+      "kind": "image",
+      "category": "prop",
+      "width": 44,
+      "height": 56,
+      "promptHint": "Alternative hay prop in same visual family."
+    },
+    {
+      "id": "poop",
+      "sourceFile": "../../public/assets/sprites/kot.bmp",
+      "outputFile": "sprites/kot.png",
+      "kind": "image",
+      "category": "icon",
+      "width": 16,
+      "height": 16,
+      "promptHint": "Family-friendly marker icon, centered and readable."
+    },
+    {
+      "id": "love",
+      "sourceFile": "../../public/assets/sprites/love.bmp",
+      "outputFile": "sprites/love.png",
+      "kind": "image",
+      "category": "effect",
+      "width": 16,
+      "height": 16,
+      "promptHint": "Positive effect icon with high contrast."
+    },
+    {
+      "id": "main_screen",
+      "sourceFile": "../../public/assets/sprites/main.bmp",
+      "outputFile": "sprites/main.png",
+      "kind": "image",
+      "category": "scene",
+      "width": 320,
+      "height": 200,
+      "promptHint": "Main scene artwork, preserve composition and perspective."
+    },
+    {
+      "id": "mouse",
+      "sourceFile": "../../public/assets/sprites/mouse.bmp",
+      "outputFile": "sprites/mouse.png",
+      "kind": "image",
+      "category": "character",
+      "width": 8,
+      "height": 12,
+      "promptHint": "Very small creature sprite with clear direction."
+    },
+    {
+      "id": "rip",
+      "sourceFile": "../../public/assets/sprites/rip.bmp",
+      "outputFile": "sprites/rip.png",
+      "kind": "image",
+      "category": "icon",
+      "width": 28,
+      "height": 28,
+      "promptHint": "Memorial marker icon with simple silhouette."
+    },
+    {
+      "id": "urine",
+      "sourceFile": "../../public/assets/sprites/urin.bmp",
+      "outputFile": "sprites/urin.png",
+      "kind": "image",
+      "category": "icon",
+      "width": 16,
+      "height": 16,
+      "promptHint": "Trail marker icon with centered droplet shape."
+    }
+  ]
+}

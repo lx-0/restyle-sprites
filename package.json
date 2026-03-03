@@ -1,0 +1,54 @@
+{
+  "name": "@yesterday-ai/restyle-sprites",
+  "version": "0.1.0",
+  "description": "AI-powered sprite restyling pipeline for consistent game asset packs",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "restyle-sprites": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "image-q": "^4.0.0",
+    "inquirer": "^13.3.0",
+    "js-yaml": "^4.1.0",
+    "openai": "^6.25.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.3.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.2",
+    "vitest": "^2.1.4"
+  }
+}
