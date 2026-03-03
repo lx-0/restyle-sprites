@@ -151,6 +151,18 @@ Required repository secret:
 
 - `NPM_TOKEN` (npm automation token with publish permissions for `restyle-sprites`)
 
+## Contributing
+
+Contributions are welcome — from humans, AI agents, or both working together. If an AI wrote the code, great. If you pair-programmed with one, also great. Just make sure the result works and you can stand behind what you submit.
+
+Before opening a PR:
+
+1. Run `pnpm typecheck` and `pnpm build` locally.
+2. Add a changeset (`pnpm changeset`) describing your change.
+3. Keep PRs focused — one feature or fix per PR.
+
+If you're unsure whether an idea fits, open an issue first to discuss.
+
 ## Notes
 
 - For very small sprites, the pipeline upscales before generation and downsamples with nearest-neighbor.
