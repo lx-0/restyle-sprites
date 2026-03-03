@@ -37,11 +37,33 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Configure npm auth
+        run: |
+          echo "registry=https://registry.npmjs.org/" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify npm auth and registry
+        run: |
+          npm config get registry
+          npm whoami --registry=https://registry.npmjs.org/
+          npm ping --registry=https://registry.npmjs.org/
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify package scope metadata
+        run: |
+          npm view @yesterday-ai/restyle-sprites name --registry=https://registry.npmjs.org/ || true
+          npm view @yesterday-ai/restyle-sprites versions --json --registry=https://registry.npmjs.org/ || true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create release PR or publish
         uses: changesets/action@v1
         with:
           version: pnpm version-packages
-          publish: pnpm release
+          publish: pnpm changeset publish --access public
           commit: "chore(release): version packages"
           title: "chore(release): version packages"
         env:
