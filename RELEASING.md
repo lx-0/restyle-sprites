@@ -1,4 +1,4 @@
-# Releasing `@yesterday-ai/restyle-sprites`
+# Releasing `restyle-sprites`
 
 This document describes the release workflow using Changesets, GitHub Actions, and npm.
 
@@ -8,7 +8,7 @@ This document describes the release workflow using Changesets, GitHub Actions, a
 - Branch protection is enabled for `main` with required checks:
   - `Build And Typecheck`
   - `Secret Detection (Gitleaks)`
-- You have publish permissions for `@yesterday-ai` on npm.
+- You have publish permissions for `restyle-sprites` on npm.
 
 ## Normal Contributor Flow
 
@@ -19,7 +19,7 @@ cd restyle-sprites
 pnpm changeset
 ```
 
-Choose the package (`@yesterday-ai/restyle-sprites`), bump type (`patch`, `minor`, `major`), and write a short summary.
+Choose the package (`restyle-sprites`), bump type (`patch`, `minor`, `major`), and write a short summary.
 
 Commit the generated file in `.changeset/` and open your PR.
 
@@ -68,13 +68,12 @@ pnpm release
 ### Publish fails with npm auth error
 
 - Ensure `NPM_TOKEN` secret exists in the repository.
-- Ensure token has permission to publish under `@yesterday-ai`.
+- Ensure token has permission to publish `restyle-sprites`.
 
 ### Publish fails with package access/name errors
 
-- Confirm package name is `@yesterday-ai/restyle-sprites`.
+- Confirm package name is `restyle-sprites`.
 - Confirm `publishConfig.access` is `public`.
-- Confirm package scope permissions in npm org settings.
 
 ## Versioning Policy (Recommended)
 

@@ -18,13 +18,13 @@ It focuses on one hard problem: keep source geometry and gameplay readability wh
 ## Install
 
 ```bash
-npm install @yesterday-ai/restyle-sprites
+npm install restyle-sprites
 ```
 
 or with pnpm:
 
 ```bash
-pnpm add @yesterday-ai/restyle-sprites
+pnpm add restyle-sprites
 ```
 
 ## Quick Start
@@ -97,7 +97,7 @@ All paths are resolved relative to the config file directory.
 ## Programmatic usage
 
 ```ts
-import { loadConfig, BatchGenerator, ImageProcessor, OpenAIImageClient, PixelArtPostProcessor } from '@yesterday-ai/restyle-sprites';
+import { loadConfig, BatchGenerator, ImageProcessor, OpenAIImageClient, PixelArtPostProcessor } from 'restyle-sprites';
 ```
 
 For a full working setup, check:
@@ -136,9 +136,11 @@ This package uses Changesets for versioning and changelog generation.
 Basic flow:
 
 1. Add a changeset in your PR:
+
    ```bash
    pnpm changeset
    ```
+
 2. Merge PR to `main`.
 3. Release workflow opens/updates a release PR with:
    - bumped version in `package.json`
@@ -147,7 +149,7 @@ Basic flow:
 
 Required repository secret:
 
-- `NPM_TOKEN` (npm automation token with publish permissions for `@yesterday-ai`)
+- `NPM_TOKEN` (npm automation token with publish permissions for `restyle-sprites`)
 
 ## Notes
 
